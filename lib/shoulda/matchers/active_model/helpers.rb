@@ -8,9 +8,8 @@ module Shoulda
         end
 
         def format_validation_errors(errors)
-          list_items = errors.keys.map do |attribute|
-            messages = errors[attribute]
-            "* #{attribute}: #{messages}"
+          list_items = errors.map do |error|
+            "* #{error.attribute}: #{error.message}"
           end
 
           list_items.join("\n")
